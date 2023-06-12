@@ -6,7 +6,6 @@ import pathlib
 from PIL import Image
 from pathlib import Path
 
-im = Image.open("images/image.jpg")
 directory = 'images'
 
 for filename in os.listdir(directory):
