@@ -4,9 +4,14 @@ import os
 import PIL
 from PIL import Image
 
-im = Image.open("image.jpg")
-# new_im = im.resize((640,480))
-# new_im.save("example_resize.jpg")
+im = Image.open("images/image.jpg")
+directory = 'images'
 
-im.rotate(180).resize((1280,1024)).save("flip_resize.jpg")
-print(im.format, im.size)
+for filename in os.listdir(directory):
+    f = os.path.join(directory, filename)
+    if os.path.isfile(f):
+        try:
+            original_img = Image.open(f)
+            original_img.rotate(90).resize((128, 128)).save("images/changed_images/{}.jpeg".format(filename))
+        except IOError as e:
+            print(e)
